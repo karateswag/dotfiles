@@ -1,0 +1,25 @@
+# Author: karateSwag
+# Repo: https://github.com/karateswag/dotfiles
+
+# width = 50%
+width = 800px
+# height = 50%
+height = 600px
+border-width = 1
+border-color = #d884c7
+corner-radius = 10
+outline-width = 0
+padding-left = 5%
+padding-right = 5%
+padding-top = 5%
+padding-bottom = 5%
+result-spacing = 0
+num-results = 0
+# font = monospace
+font = "/usr/share/fonts/TTF/DejaVuSansMono.ttf"
+# background-color = #000A
+# background-color = #262335CC
+# background-color = #26233500
+background-color = #262335B2
+selection-color = #03edf9
+font-size = 20

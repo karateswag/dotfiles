@@ -1,0 +1,15 @@
+*.bak
+old/
+*.log
+
+#Qtile
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+
+#Ranger
+.config/ranger/plugins/
+
+#Nvim
+lazy-lock.json

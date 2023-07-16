@@ -1,0 +1,41 @@
+# Author: karateSwag
+# Repo: https://github.com/karateswag/dotfiles
+
+daemonize
+show-failed-attempts
+clock
+#effect-blur=5x5
+font="Inter"
+indicator
+indicator-radius=200
+indicator-thickness=20
+image="/usr/share/sddm/themes/sugar-candy/Backgrounds/HowlsMovingCastel.png"
+color=26233580
+line-color=26233500
+ring-color=26233500
+inside-color=26233500
+key-hl-color=ff7edb
+separator-color=00000000
+text-color=e0def4
+text-caps-lock-color=""
+line-ver-color=ff7edb
+ring-ver-color=ff7edb
+inside-ver-color=26233500
+text-ver-color=e0def4
+ring-wrong-color=fe4450
+text-wrong-color=fe4450
+inside-wrong-color=26233500
+inside-clear-color=26233500
+text-clear-color=e0def4
+ring-clear-color=9af7fc
+line-clear-color=26233500
+line-wrong-color=26233500
+bs-hl-color=9af7fc
+grace=2
+grace-no-mouse
+grace-no-touch
+timestr=%R
+#datestr=%d-%m-%Y
+datestr=%A,%_d %B %Y
+fade-in="0.1"
+ignore-empty-password
