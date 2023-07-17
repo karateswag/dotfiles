@@ -8,16 +8,21 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 lsp.ensure_installed({
-  'tsserver',
-  'eslint',
-  'html',
-  'emmet_language_server',
-  'lua_ls',
-  'dockerls',
-  'docker_compose_language_service',
-  'terraformls',
   'ansiblels',
   'bashls',
+  'cssls',
+  'docker_compose_language_service',
+  'dockerls',
+  'emmet_language_server',
+  'eslint',
+  'html',
+  'jsonls',
+  'lua_ls',
+  'marksman',
+  'pyright',
+  'terraformls',
+  'tsserver',
+  'yamlls',
 })
 
 lsp.setup()

@@ -32,6 +32,7 @@ tooltip {
 #memory,
 #network,
 #pulseaudio,
+#submap,
 #temperature,
 #tray,
 #workspaces,
@@ -119,6 +120,13 @@ tooltip {
 
 #idle_inhibitor.deactivated {
   color: rgba(255, 255, 255, 0.3);
+}
+
+#submap{
+  color: #72f1b8;
+  background-color: rgba(38, 35, 53, 0.3);
+  padding: 4px 10px;
+  border-radius: 5px;
 }
 
 #battery.discharging.warning {
