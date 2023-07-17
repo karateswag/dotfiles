@@ -2,17 +2,17 @@
 # Author: karateSwag
 # Repo: https://github.com/karateswag/dotfiles
 
-# version
-VERSION="v1.0"
+# Version
+version="v1.1"
 
 # Retrieve the directory path of the script
-SCRIPT_DIR="$(cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")" && pwd)"
-TARGET_DIR="$HOME"
-REQUIRED_DIR=(
+script_dir="$(cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")" && pwd)"
+target_dir="$HOME"
+required_dirs=(
   ".config"
   # Add more required directories as needed
 )
-DOTFILES_LIST=(
+dotfiles=(
   ".zshrc"
   ".p10k.zsh"
   ".config/alacritty"
@@ -21,6 +21,7 @@ DOTFILES_LIST=(
   ".config/nvim"
   ".config/swaylock"
   ".config/tofi"
+  ".config/wallpapers"
   ".config/waybar"
   ".config/wlogout"
   # Add more dotfiles as needed
@@ -30,10 +31,10 @@ link_dotfile() {
   local source_location=$1
   local target_location=$2
   if [ -e "$target_location" ] || [ -d "$target_location" ]; then
-    echo "$target_location already exists! Skipping the action."
+    echo "$target_location already exists! Skipping the operation."
     echo " "
   else
-    echo "Creating simlink of $source_location at $target_location"
+    echo "Creating symbolic link of $source_location at $target_location"
     ln -s "$source_location" "$target_location"
     echo " "
   fi
@@ -46,23 +47,29 @@ link_prompt() {
   [[ $choice == "y" || $choice == "Y" ]]
 }
 
-choose_version() {
+version_prompt() {
   local dotfile=$1
-  read -rp "Which version of $dotfile? (D)esktop/(l)aptop: " version_choice
-  # version_choice="${version_choice,,}"
+  read -rp "Choose version to install: (D)esktop/(l)aptop ? " version_choice
   version_choice="${version_choice:-D}"
-  if [[ $version_choice == "d" || $version_choice == "D" ]]; then
-    echo "desktop"
-  elif [[ $version_choice == "l" || $version_choice == "L" ]]; then
-    echo "laptop"
+  return $version_choice
+}
+
+version_prompt() {
+  local dotfile=$1
+  read -rp "Choose version of $dotfile to install: (D)esktop/(l)aptop ? " version_choice
+  version_choice="${version_choice:-D}"
+  if [[ $version_choice == "D" || $version_choice == "d" ]]; then
+    dotfile_version="desktop"
+  elif [[ $version_choice == "L" || $version_choice == "l" ]]; then
+    dotfile_version="laptop"
   else
-    return 1
+    dotfile_version=""
   fi
 }
 
 check_create_directory() {
   local directory=$1
-  local full_dir="$TARGET_DIR/$directory"
+  local full_dir="$target_dir/$directory"
   if [ ! -d "$full_dir" ]; then
     read -rp "The directory $full_dir does not exist. Create it? (Y/n): " create_choice
     create_choice="${create_choice:-Y}"
@@ -71,7 +78,7 @@ check_create_directory() {
       mkdir -p "$full_dir"
       echo " "
     else
-      echo "Skipping the action."
+      echo "Skipping the operation."
       echo " "
       exit 0
     fi
@@ -80,7 +87,7 @@ check_create_directory() {
 
 # Running script:
 echo "*********************************************************************************"
-echo "Running dotfiles_setup.sh $VERSION by karateSwag !"
+echo "Running dotfiles_setup.sh $version by karateSwag!"
 echo "*********************************************************************************"
 echo " "
 
@@ -88,36 +95,28 @@ echo " "
 echo "*********************************************************************************"
 echo "Checking missing directories:"
 echo " "
-for required_dir in "${REQUIRED_DIR[@]}"; do
+for required_dir in "${required_dirs[@]}"; do
   check_create_directory "$required_dir"
 done
 
 # Link dotfiles
 echo "*********************************************************************************"
-echo "Creating symlinks to dotfiles:"
+echo "Creating symbolic links to dotfiles:"
 echo "                           "
 
-for dotfile in "${DOTFILES_LIST[@]}"; do
+for dotfile in "${dotfiles[@]}"; do
   if link_prompt "$dotfile"; then
-    source_location=""
-    target_location="$TARGET_DIR/$dotfile"
-
-    if [[ -d "$SCRIPT_DIR/$dotfile/desktop" && -d "$SCRIPT_DIR/$dotfile/laptop" ]]; then
-      version=$(choose_version "$dotfile")
-      if [[ -n $version ]]; then
-        source_location="$SCRIPT_DIR/$dotfile/$version"
+    source_location="$script_dir/$dotfile"
+    target_location="$target_dir/$dotfile"
+    link_dotfile "$source_location" "$target_location"
+    if [[ $dotfile == ".config/hypr" ]]; then
+      version_prompt "$dotfile"
+      if [[ ! $dotfile_version == "" ]]; then
+        link_dotfile "config/$dotfile_version.conf" "$target_location/hyprland.conf"
       fi
-    else
-      source_location="$SCRIPT_DIR/$dotfile"
-    fi
-
-    if [[ -n $source_location ]]; then
-      link_dotfile "$source_location" "$target_location"
-    else
-      echo "Skipping the action."
     fi
   else
-    echo "Skipping the action."
+    echo "Skipping the operation."
   fi
 done
 

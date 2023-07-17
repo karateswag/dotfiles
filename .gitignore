@@ -13,3 +13,6 @@ __pycache__/
 
 #Nvim
 lazy-lock.json
+
+#Hyprland
+hyprland.conf

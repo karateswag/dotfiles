@@ -72,5 +72,5 @@ sudo apt-get install -y neovim
 or install neovim via snap:
 
 ```shell
-sudo snap install nvim
+sudo snap install nvim --classic
 ```
