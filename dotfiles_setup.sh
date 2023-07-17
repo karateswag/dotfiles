@@ -17,6 +17,7 @@ dotfiles=(
   ".p10k.zsh"
   ".config/alacritty"
   ".config/dunst"
+  ".config/gtk-3.0"
   ".config/hypr"
   ".config/nvim"
   ".config/swaylock"
