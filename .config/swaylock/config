@@ -9,7 +9,7 @@ font="Inter"
 indicator
 indicator-radius=200
 indicator-thickness=20
-image="/usr/share/sddm/themes/sugar-candy/Backgrounds/HowlsMovingCastel.png"
+image="$HOME/.config/wallpapers/wallpaper1.png"
 color=26233580
 line-color=26233500
 ring-color=26233500
