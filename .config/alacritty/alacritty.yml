@@ -13,7 +13,7 @@ window:
     y: 35
 
 # Window opacity as a floating point number from `0.0` to `1.0`.
-  opacity: 0.5
+  opacity: 0.7
 
   # Window title
   title: Alacritty

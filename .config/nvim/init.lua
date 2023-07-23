@@ -1,4 +1,2 @@
--- Author: karateSwag
--- Repo: https://github.com/karateswag/dotfiles
-
-require("core")
+-- bootstrap lazy.nvim, LazyVim and your plugins
+require("config.lazy")
