@@ -1,5 +1,5 @@
- /* Author: karateSwag */
- /* Repo: https://github.com/karateswag/dotfiles */
+/* Author: karateSwag */
+/* Repo: https://github.com/karateswag/dotfiles */
 
 * {
   border: none;
@@ -31,6 +31,7 @@ tooltip {
 #memory,
 #network,
 #pulseaudio,
+#submap,
 #temperature,
 #tray,
 #workspaces,
@@ -119,6 +120,9 @@ tooltip {
   color: rgba(255, 255, 255, 0.3);
 }
 
-/* #idle_inhibitor.activated { */
-  /* color: rgba(255, 255, 255, 0.5); */
-/* } */
+#submap {
+  color: #72f1b8;
+  background-color: rgba(38, 35, 53, 0.3);
+  padding: 4px 10px;
+  border-radius: 5px;
+}
