@@ -148,12 +148,13 @@
   "battery": {
     "bat": "BAT0",
     "interval": 1,
+    "full-at": 79,
     "states": {
       "warning": 60,
       "critical": 30
     },
     "format": "{capacity}% 󱐋",
-    "format-discharging": "{capacity}%",
+    "format-discharging": "{capacity}%"
     // "format-icons": ["󰁺", "󰁼", "󰁾", "󰂀", "󰁹"]
   }
 }
