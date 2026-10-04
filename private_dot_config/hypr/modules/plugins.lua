@@ -1,0 +1,1 @@
+-- ~/.config/hypr/modules/plugins.lua

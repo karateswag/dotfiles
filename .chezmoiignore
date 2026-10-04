@@ -1,0 +1,6 @@
+{{ if ne .chezmoi.osRelease.id "arch" }}
+.config/hypr/*
+.config/nvim/*
+.config/kitty/*
+.config/noctalia/*
+{{ end }}

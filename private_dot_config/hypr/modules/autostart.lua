@@ -1,0 +1,15 @@
+-- ~/.config/hypr/modules/autostart.lua
+
+hl.on("hyprland.start", function()
+	hl.exec_cmd("uwsm app -- noctalia")
+	hl.exec_cmd("systemctl --user start gcr-ssh-agent.socket")
+	-- hl.exec_cmd("systemctl --user start hyprpaper")
+	-- hl.exec_cmd("systemctl --user start hypridle")
+	-- hl.exec_cmd("uwsm app -- waybar")
+	-- hl.exec_cmd("systemctl --user start hyprpolkitagent")
+	-- hl.exec_cmd("uwsm app -- dunst")
+	-- hl.exec_cmd("uwsm app -- hypridle")
+	-- hl.exec_cmd("uwsm app -- hyprsunset")
+	-- hl.exec_cmd("uwsm app -- nm-applet")
+	-- hl.exec_cmd("uwsm app -- blueman-applet")
+end)

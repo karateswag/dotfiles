@@ -1,0 +1,43 @@
+# Linux
+*~
+.Trash-*
+
+# Neovim
+*.swp
+*.swo
+*.swn
+*.un~
+Session.vim
+.netrwhist
+*.shada
+
+# Shell History
+.bash_history
+.zsh_history
+.history
+*_history
+
+# Keys & Credentials
+id_rsa
+id_ed25519
+id_ecdsa
+*.pem
+*.key
+*.cert
+*.p12
+.aws/credentials
+.npmrc
+.pypirc
+.docker/config.json
+
+# Local State & Safety Nets
+.env
+.env.*
+!.env.example
+!.env.template
+*.sqlite
+*.sqlite3
+*.db
+*.log
+*.tar.gz
+*.zip
