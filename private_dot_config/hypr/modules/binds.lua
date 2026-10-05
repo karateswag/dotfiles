@@ -71,6 +71,13 @@ for _, mapping in ipairs(ws_keys) do
 	hl.bind(mainMod .. " + SHIFT + " .. mapping.key, hl.dsp.window.move({ workspace = mapping.ws }))
 end
 
+-- Switch focus to next monitor
+hl.bind(mainMod .. " + SPACE", hl.dsp.focus({ monitor = "+1" }))
+-- Move window to next monitor
+hl.bind(mainMod .. " + SHIFT + SPACE", hl.dsp.window.move({ monitor = "+1" }))
+-- Move workspace to next monitor
+hl.bind(mainMod .. " + CTRL + SPACE", hl.dsp.workspace.move({ monitor = "+1" }))
+
 -- Scroll through existing workspaces with mainMod + scroll
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
