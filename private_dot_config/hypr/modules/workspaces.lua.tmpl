@@ -1,0 +1,39 @@
+-- ~/.config/hypr/modules/workspaces.lua
+
+{{- if eq .chezmoi.hostname "arch-desktop" }}
+local monitor_1 = "DP-1"
+local monitor_2 = "DP-2"
+{{- else if eq .chezmoi.hostname "arch-xps" }}
+local monitor_1 = "eDP-1"
+local monitor_2 = "DP-4"
+{{- else }}
+local monitor_1 = ""
+local monitor_2 = ""
+{{- end }}
+
+-- Defining workspaces
+local workspaces = {
+	{ id = "1", icon = "", monitor = monitor_1, persistent = true },
+	{ id = "2", icon = "󰈹", monitor = monitor_2, persistent = false },
+	{ id = "3", icon = "󰇰", monitor = monitor_2, persistent = false },
+	{ id = "4", icon = "󱓟", monitor = monitor_1, persistent = false },
+	{ id = "5", icon = "󰧮", monitor = monitor_2, persistent = false },
+	{ id = "6", icon = "󰯜", monitor = monitor_1, persistent = false },
+	{ id = "7", icon = "󰇄", monitor = monitor_2, persistent = false },
+	{ id = "8", icon = "󰺷", monitor = monitor_1, persistent = false },
+	{ id = "9", icon = "󱋊", monitor = monitor_2, persistent = false },
+	{ id = "10", icon = "󰉖", monitor = monitor_2, persistent = false },
+}
+
+for _, workspace in ipairs(workspaces) do
+	hl.workspace_rule({
+		workspace = workspace.id,
+		default_name = workspace.icon,
+		persistent = workspace.persistent,
+		monitor = workspace.monitor,
+	})
+end
+
+-- "Smart gaps" / "No gaps when only"
+hl.workspace_rule({ workspace = "w[tv1]", gaps_out = 5, gaps_in = 0 })
+hl.workspace_rule({ workspace = "f[1]", gaps_out = 5, gaps_in = 0 })
