@@ -111,7 +111,10 @@ hl.bind("CTRL + ALT + F", hl.dsp.exec_cmd(uwsm_start .. browser))
 -- Core binds
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(ipc .. "panel-toggle launcher"))
 hl.bind(mainMod .. " + S", hl.dsp.exec_cmd(ipc .. "panel-toggle control-center"))
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd(ipc .. "settings-toggle"))
+-- hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd(ipc .. "settings-toggle"))
+hl.bind(mainMod .. " + SHIFT + S", hl.dsp.workspace.toggle_special("settings"))
+hl.workspace_rule({ workspace = "special:settings", on_created_empty = "noctalia msg settings-toggle" })
+
 hl.bind("ALT + Tab", hl.dsp.exec_cmd(ipc .. "window-switcher hold"))
 
 -- Media keys

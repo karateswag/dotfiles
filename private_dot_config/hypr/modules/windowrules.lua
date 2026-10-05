@@ -70,11 +70,3 @@ hl.window_rule({
 	rounding = 14,
 	rounding_power = 2,
 })
-
--- Noctalia Settings Window Rule
-hl.window_rule({
-	match = { class = "dev.noctalia.Noctalia" },
-	float = true,
-	size = { "(monitor_w*0.9)", "(monitor_h*0.9)" },
-	-- size = { 1080, 920 },
-})
